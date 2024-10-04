@@ -1,5 +1,5 @@
 const mongoose = require('mongoose');
-//const Tag = mongoose.model('Tag');
+
 const notaModel = new mongoose.Schema(
     {
         text: {

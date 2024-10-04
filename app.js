@@ -5,9 +5,6 @@ const indexRouter = require('./routes/index');
 const dbconnnect = require('./config/config');
 
 const app = express();
-// ME ESTOY BASANDO DE LOS PROYECTOS
-//  node-express-postgresql-sequelize-master
-//  Point-of-Sales-App-Restfull-master
 
 app.use(logger('dev'));
 app.use(express.json());
@@ -18,7 +15,7 @@ app.use(express.static("./"));
 
 app.use('/', indexRouter);
 
-//dbconnnect();
+dbconnnect();
 
 
 app.listen(5000, () => {

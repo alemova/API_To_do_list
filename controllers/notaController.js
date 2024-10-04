@@ -1,10 +1,11 @@
 const Nota = require('../models/notas');
+const Tag = require('../models/tags')
 
 module.exports = {
 
     async list(req, res){    //me falta aplicar para que traiga el nombre del tag en el json
         try {
-            const notas = await Nota.find({});
+            const notas = await Nota.find({}).populate("tag");
             return res.status(200).send(notas);
         } catch (error) {
             res.status(400).send(error);
@@ -13,7 +14,7 @@ module.exports = {
 
     async getById(req, res){
         try {
-            const nota = await Nota.findById(req.params.id);
+            const nota = await Nota.findById(req.params.id).populate("tag");
             return res.status(200).send(nota);
         } catch (error) {
             res.status(400).send(error);
